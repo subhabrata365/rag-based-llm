@@ -17,7 +17,7 @@ This project can be hosted quickly in two ways:
 6. Open **Advanced settings -> Secrets** and add:
 
 ```toml
-OPENAI_API_KEY="your_openai_api_key"
+HUGGINGFACEHUB_API_TOKEN="your_huggingface_token"
 ```
 
 7. Deploy.
@@ -38,7 +38,7 @@ This repo now includes a `Dockerfile`, so most container platforms work directly
 3. Connect repo.
 4. Environment: **Docker**.
 5. Add environment variable:
-   - `OPENAI_API_KEY=your_openai_api_key`
+   - `HUGGINGFACEHUB_API_TOKEN=your_huggingface_token`
 6. Deploy.
 
 ### Railway
@@ -46,7 +46,7 @@ This repo now includes a `Dockerfile`, so most container platforms work directly
 1. Create new project from GitHub repo.
 2. Railway detects Docker and builds automatically.
 3. Add environment variable:
-   - `OPENAI_API_KEY=your_openai_api_key`
+   - `HUGGINGFACEHUB_API_TOKEN=your_huggingface_token`
 4. Deploy.
 
 ## Verify Deployment

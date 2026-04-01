@@ -2,7 +2,7 @@
 
 A Streamlit application that lets you upload multiple PDFs and ask questions grounded in their contents using Retrieval-Augmented Generation (RAG).
 
-This project is intentionally small and interview-friendly: it demonstrates an end-to-end RAG pipeline using `LangChain`, `FAISS`, and `OpenAI`.
+This project is intentionally small and interview-friendly: it demonstrates an end-to-end RAG pipeline using `LangChain`, `FAISS`, and Hugging Face models.
 
 ## What This Project Does
 
@@ -25,10 +25,10 @@ The app is implemented in `app.py` and follows this sequence:
    - `chunk_size=1000`
    - `chunk_overlap=200`
 3. **Embedding + indexing**  
-   Chunks are embedded with `OpenAIEmbeddings` and indexed using `FAISS`.
+   Chunks are embedded with `HuggingFaceInstructEmbeddings` and indexed using `FAISS`.
 4. **Conversational retrieval**  
    `ConversationalRetrievalChain` combines:
-   - `ChatOpenAI` for answer generation
+   - `HuggingFaceHub` for answer generation
    - FAISS retriever for context selection
    - `ConversationBufferMemory` for chat continuity
 5. **Response rendering**  
@@ -87,8 +87,7 @@ pip install -r requirements.txt
 Create a `.env` file (or copy from `.env.example`) and set:
 
 ```bash
-OPENAI_API_KEY=your_openai_api_key
-HUGGINGFACEHUB_API_TOKEN=optional_if_using_huggingface
+HUGGINGFACEHUB_API_TOKEN=your_huggingface_token
 ```
 
 ## Running the App
@@ -119,10 +118,10 @@ Step-by-step instructions are in:
 - `streamlit` - web UI
 - `PyPDF2` - PDF text extraction
 - `langchain` - chain orchestration
-- `openai` - OpenAI model API
+- `huggingface-hub` - Hugging Face inference API access
 - `faiss-cpu` - vector similarity search
 - `python-dotenv` - environment variable loading
-- `tiktoken` - token utilities (used by LangChain/OpenAI stack)
+- `InstructorEmbedding` and `sentence-transformers` - local embedding model support
 
 ## Limitations
 

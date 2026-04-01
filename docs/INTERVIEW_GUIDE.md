@@ -15,9 +15,9 @@ Large language models are powerful but can hallucinate when asked about private 
 1. User uploads PDFs in Streamlit sidebar.
 2. `get_pdf_text()` extracts page text using `PyPDF2`.
 3. `get_text_chunks()` splits text into overlapping chunks (`1000/200`).
-4. `get_vectorstore()` embeds chunks with `OpenAIEmbeddings` and creates a FAISS index.
+4. `get_vectorstore()` embeds chunks with `HuggingFaceInstructEmbeddings` and creates a FAISS index.
 5. `get_conversation_chain()` builds a `ConversationalRetrievalChain` using:
-   - `ChatOpenAI`
+   - `HuggingFaceHub`
    - FAISS retriever (`vectorstore.as_retriever()`)
    - `ConversationBufferMemory`
 6. `handle_userinput()` sends user question to the chain and renders alternating user/bot messages.
@@ -29,7 +29,7 @@ Large language models are powerful but can hallucinate when asked about private 
 - **LLM/RAG framework:** LangChain
 - **Vector database/index:** FAISS (local, in-memory)
 - **Document parsing library:** PyPDF2
-- **Model providers used:** OpenAI (`ChatOpenAI`, `OpenAIEmbeddings`)
+- **Model providers used:** Hugging Face (`HuggingFaceHub`, `HuggingFaceInstructEmbeddings`)
 - **Environment management:** python-dotenv
 
 ### Microservices Note
@@ -156,7 +156,7 @@ Test extraction, chunking, retrieval quality, and error handling.
 
 ## 11) Quick Resume Bullet (Copy-Friendly)
 
-"Built a Streamlit RAG application for multi-document PDF QA using LangChain, OpenAI embeddings, FAISS vector retrieval, and conversational memory; implemented ingestion, chunking, semantic search, and context-grounded response generation."
+"Built a Streamlit RAG application for multi-document PDF QA using LangChain, Hugging Face models, FAISS vector retrieval, and conversational memory; implemented ingestion, chunking, semantic search, and context-grounded response generation."
 
 ## 12) 30-60-Second Architecture Explanation
 
